@@ -1,20 +1,49 @@
-import mysql.connector
+import os
 
-meudb = mysql.connector.connect(
-    host='localhost', #local de hospedagem
-    user='root', #usuriario da pc
-    password='admin', #senha dada inicialmente
-    database='bancodedados' #dado cadastrado na tabela mysql
-)
+from tkinter import*
+from tkinter import Tk, StringVar, ttk
+from tkinter import filedialog as fd
+from tkinter import messagebox
 
-#Verificar banco de dados antes de criar 
-cursor = meudb.cursor()
-cursor.execute("SHOW DATABASES LIKE 'bancodedados'")
+################# colors ###############
 
-resultado = cursor.fetchall()
+co0 = "#2e2d2b"  # Black
+co1 = "#feffff"  # White
+co2 = "#4fa882"  # Green
+co3 = "#38576b"  # Value
+co4 = "#403d3d"  # Letter
+co5 = "#e06636"  # - profit
+co6 = "#038cfc"  # Blue
+co7 = "#3fbfb9"  # Green
+co8 = "#263238"  # + green
+co9 = "#e9edf5"  # + green
 
-if resultado:
-    print("O banco de dados já existe.")
-else:
-    print("O banco de dados ainda não existe.")
-    cursor.execute("CREATE DATABASE bancodedados")
+colors = ['#1f77b4', '#66bbbb','#99bb55', '#ee9944', '#444466', '#bb5555','#1f77b4','#ff7f0e','#2ca02c','#d62728','#9467bd','#8c564b','#e377c2' ,'#7f7f7f','#bcbd22','#17becf',]
+['#1f77b4','#ff7f0e','#2ca02c','#d62728','#9467bd','#8c564b','#e377c2' ,'#7f7f7f','#bcbd22','#17becf','#ff9896','#98df8a','#aec7e8','#ffbb78' ,'#c5b0d5','#c49c94','#f7b6d2','#dbdb8d','#9edae5','#393b79']
+
+
+################# creating window ###############
+
+janela = Tk ()
+janela.title ("")
+janela.geometry('700x350')
+janela.configure(background=co9)
+janela.resizable(width=FALSE, height=FALSE)
+
+# Definindo o Estilo da Janela
+style = ttk.Style(janela)
+style.theme_use("clam")
+
+
+################# Creating Frames ####################
+
+frameCima = Frame(janela, width=700, height=50, bg=co1,  relief="flat",)
+frameCima.grid(row=0, column=0)
+
+frameMeio = Frame(janela,width=700, height=300,bg=co1)
+frameMeio.grid(row=1, column=0,sticky=NSEW)
+
+
+
+
+janela.mainloop()
